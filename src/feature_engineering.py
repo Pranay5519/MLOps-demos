@@ -2,6 +2,10 @@ import numpy as np
 import pandas as pd
 
 import os
+import yaml
+
+params = yaml.safe_load(open('params.yaml'))
+max_features = params['feature_engineering']['max_features']
 
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -20,7 +24,7 @@ X_test = test_data['content'].values
 y_test = test_data['sentiment'].values
 
 # Apply Bag of Words (CountVectorizer)
-vectorizer = CountVectorizer(max_features=50)
+vectorizer = CountVectorizer(max_features=max_features)
 
 # Fit the vectorizer on the training data and transform it
 X_train_bow = vectorizer.fit_transform(X_train)
