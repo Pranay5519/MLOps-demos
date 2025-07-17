@@ -8,7 +8,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 params = yaml.safe_load('params.yaml')
 n_estimators = params['model_building']['n_estimators']
 learning_rate =  params['model_building']['learning_rate']
-
+print(n_estimators, learning_rate)
 # fetch the data from data/processed
 train_data = pd.read_csv('./data/features/train_bow.csv')
 
